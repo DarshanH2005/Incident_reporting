@@ -1,0 +1,152 @@
+.outerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #101928;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: #ffffff;
+  border: 2px dashed #c6c6c6;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconWrap {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.25;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666666;
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background-color: #666666;
+  border-radius: 50%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.btnLarge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #ffffff;
+  border: 1px solid #38AEE0;
+  border-radius: 6px;
+  color: #38AEE0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btnLarge:hover {
+  background: #f0f8ff;
+  border-color: #2a9bc8;
+  color: #2a9bc8;
+}
+
+.btnLarge:active {
+  transform: translateY(1px);
+}
+
+.iconSmall {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    padding: 16px;
+  }
+  
+  .left {
+    justify-content: center;
+  }
+  
+  .actions {
+    justify-content: center;
+  }
+  
+  .btnLarge {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 12px 16px;
+  }
+  
+  .left {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .textBlock {
+    align-items: center;
+  }
+}

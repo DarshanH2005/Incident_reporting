@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.label {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #101928;
+  letter-spacing: 0.015em;
+}
+
+.inputFrame {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  padding: 14px 12px;
+  box-sizing: border-box;
+}
+
+.leftContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.avatar {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.input {
+  border: none;
+  outline: none;
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-size: 14px;
+  color: #101928;
+  background: transparent;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+  flex: 0 0 auto;
+}
+
+.rightAddon {
+  color: #667185;
+  font-size: 14px;
+}
+
+.chev {
+  display: inline-block;
+}
+
+@media (max-width: 600px) {
+  .inputFrame {
+    padding: 10px 10px;
+  }
+  .label {
+    font-size: 13px;
+  }
+}

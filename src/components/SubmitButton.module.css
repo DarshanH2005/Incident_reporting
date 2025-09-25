@@ -1,0 +1,40 @@
+.button {
+  height: 38px;
+  min-width: 90px;
+  padding: 0 20px;
+  background: #38aee0;
+  color: #ffffff;
+  border: 1px solid #38aee0;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  transition: background 0.15s ease, transform 0.08s ease;
+}
+
+.button:active {
+  transform: translateY(1px);
+}
+
+.button:disabled,
+.button.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.label {
+  color: #ffffff;
+}
+
+/* Simple responsive tweak */
+@media (max-width: 400px) {
+  .button {
+    min-width: 72px;
+    padding: 0 12px;
+  }
+}

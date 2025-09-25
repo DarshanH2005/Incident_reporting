@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  color: #606060;
+  padding: 8px 0;
+}
+.iconWrap {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text {
+  font-size: 14px;
+  color: #606060;
+}
+.active {
+  background: rgba(96,96,96,0.06);
+  border-radius: 4px;
+  padding: 4px 8px;
+}

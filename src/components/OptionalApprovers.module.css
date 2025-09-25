@@ -1,0 +1,119 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #101928;
+  margin: 0;
+  padding: 0;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.checkboxItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.customCheckboxWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hiddenCheckbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+}
+
+.customCheckbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d0d5dd;
+  border-radius: 3px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.customCheckbox.checked {
+  background: #38aee0;
+  border-color: #38aee0;
+}
+
+.customCheckbox:hover {
+  border-color: #38aee0;
+}
+
+.checkIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  cursor: pointer;
+  transition: font-weight 0.2s ease;
+}
+
+.labelChecked {
+  font-weight: 700;
+}
+
+/* Focus styles */
+.hiddenCheckbox:focus + .customCheckbox {
+  outline: 2px solid #38aee0;
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .checkboxRow {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .checkboxRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .checkboxItem {
+    width: 100%;
+  }
+}
+
+.submitWrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 6px; /* small gap below the checkboxes */
+}

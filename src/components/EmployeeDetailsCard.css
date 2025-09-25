@@ -1,0 +1,159 @@
+/* Employee Details Card Styles */
+.employee-details-section {
+  margin: 24px 0;
+}
+
+.employee-details-title {
+  font-family: 'Samsung InterFace', 'Segoe UI', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #101928;
+  line-height: 1.45;
+  margin: 0 0 16px 0;
+}
+
+.employee-details-container {
+  /* Use CSS Grid to precisely control column widths and separator sticks */
+  display: grid;
+  /* columns: name | sep | id | sep | designation | sep | division | sep | date | sep | manager */
+  grid-template-columns: 160px 1px 120px 1px 160px 1px 250px 1px 140px 1px 180px;
+  align-items: center;
+  background: #eff6ff;
+  border-radius: 6px;
+  padding: 10px 24px;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0 43px;
+}
+
+.employee-detail-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  min-height: 59px;
+  /* allow values to wrap nicely */
+  overflow: hidden;
+}
+
+.employee-detail-field:first-child {
+  padding-left: 0;
+}
+
+.employee-detail-field:last-child {
+  padding-right: 0;
+}
+
+.field-label {
+  font-family: 'Samsung InterFace', 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #202224;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  margin-bottom: 4px;
+}
+
+.field-value {
+  font-family: 'Samsung InterFace', 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  color: #333333;
+  line-height: 1.45;
+  font-weight: normal;
+}
+
+/* make values inline-block so text-overflow works reliably inside grid items */
+.field-value {
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* Keep certain short fields on a single line on desktop */
+.employee-details-container > .employee-detail-field:nth-child(3) .field-value,
+.employee-details-container > .employee-detail-field:nth-child(9) .field-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Prevent the Employee Name label/value and Employee ID label/value from wrapping on desktop */
+.employee-details-container > .employee-detail-field:first-child .field-label,
+.employee-details-container > .employee-detail-field:first-child .field-value,
+.employee-details-container > .employee-detail-field:nth-child(3) .field-label,
+.employee-details-container > .employee-detail-field:nth-child(3) .field-value {
+  white-space: nowrap;
+}
+
+/* Specific semantic selectors for the new classes */
+.field-employee-id .field-value,
+.field-date .field-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ensure the ID and Date fields prefer staying on one line by giving them a minimum width */
+.field-employee-id {
+  min-width: 140px;
+}
+
+.field-date {
+  min-width: 140px;
+}
+
+.field-separator {
+  width: 1px;
+  background: #dfe5ef;
+  height: 40px;
+  justify-self: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  /* Switch to a 2-column grid for medium screens */
+  .employee-details-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(60px, auto);
+    gap: 12px 24px;
+    padding: 16px 24px;
+  }
+
+  .employee-detail-field {
+    padding: 8px 12px;
+    min-width: 0;
+  }
+
+  .field-separator {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Stack fields on small screens */
+  .employee-details-container {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 8px 0;
+  }
+
+  .employee-detail-field {
+    width: 100% !important;
+    padding: 8px 0;
+    border-bottom: 1px solid #dfe5ef;
+    border-left: none; /* remove left borders on stacked layout */
+  }
+
+  .employee-detail-field:last-child {
+    border-bottom: none;
+  }
+}
+
+/* On smaller screens allow the previously constrained fields to wrap */
+@media (max-width: 1200px) {
+  .employee-details-container > .employee-detail-field:nth-child(3) .field-value,
+  .employee-details-container > .employee-detail-field:nth-child(9) .field-value {
+    white-space: normal;
+    text-overflow: clip;
+    overflow: visible;
+  }
+}

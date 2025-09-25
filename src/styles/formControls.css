@@ -1,0 +1,179 @@
+/* Shared form controls to standardize input frames across components */
+:root{
+  --fc-bg: #f5f5f5;
+  --fc-border: #e6eef3; /* lighter border to match other input boxes */
+  --fc-radius: 6px;
+  --fc-height: 48px;
+  --fc-padding: 12px;
+}
+
+.fc-inputFrame {
+  display: flex;
+  align-items: center;
+  background: var(--fc-bg);
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+  padding: var(--fc-padding);
+  height: var(--fc-height);
+  min-height: var(--fc-height);
+  /* subtle inset stroke to reinforce the border on very light backgrounds */
+  box-shadow: inset 0 0 0 1px rgba(16,25,40,0.04);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.fc-leftContent { flex: 1 1 auto; display:flex; align-items:center; gap:12px; }
+.fc-rightContent { flex: 0 0 auto; display:flex; align-items:center; gap:8px; }
+.fc-input, .fc-dateInput { width:100%; border:none; background:transparent; outline:none; font-size:14px; color:#101928; box-sizing:border-box; }
+
+/* Map underscore-prefixed live fragments to the fc class names to keep parity */
+._inputFrame_j8q6v_41, ._inputFrame_1wq7m_39, ._inputFrame_1shfq_51, .fc-inputFrame {
+  display: flex;
+  align-items: center;
+  height: var(--fc-height);
+  background: var(--fc-bg);
+  border: 1px solid var(--fc-border);
+  border-radius: var(--fc-radius);
+  padding: var(--fc-padding);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+._leftContent_j8q6v_69, ._leftContent_1wq7m_61, ._leftContent_1shfq_69, .fc-leftContent { 
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+._input_j8q6v_41, ._input_1wq7m_39, ._dateInput_j8q6v_101, ._dateInput_1wq7m_97, .fc-input, .fc-dateInput {
+  width: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: #101928;
+  box-sizing: border-box;
+  /* ensure form-controlled inputs (including native date) fill the frame */
+  height: 100%;
+  padding: 0;
+  display: block;
+  align-self: stretch;
+}
+
+/* Force native date inputs to fully fill the fc frame and normalize picker icon */
+input._dateInput_j8q6v_101[type="date"], input#document-submitted-on {
+  height: 100% !important;
+  padding: 0 6px !important;
+  margin: 0;
+  box-sizing: border-box;
+  display: block;
+  background: transparent;
+  border: none;
+}
+
+/* WebKit calendar icon tweaks so it doesn't overflow vertically */
+input._dateInput_j8q6v_101::-webkit-calendar-picker-indicator,
+input#document-submitted-on::-webkit-calendar-picker-indicator {
+  height: 20px;
+  width: 20px;
+  margin-left: 6px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Firefox - try to keep rendering consistent */
+input._dateInput_j8q6v_101::-moz-focus-inner, input#document-submitted-on::-moz-focus-inner {
+  border: 0;
+}
+
+/* Replace native picker icon with consistent SVG across all date inputs */
+input[type="date"], input.date-input, input._dateInput_j8q6v_101, input._dateInput_1wq7m_97, .fc-dateInput {
+  /* remove native appearance so we can display our icon */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  /* place icon consistently 12px from the right edge, vertically centered */
+  background-position: calc(100% - 12px) center;
+  background-size: 16px 18px;
+  /* keep a small, consistent gap for text so the icon doesn't overlap */
+  padding-right: 44px;
+}
+
+/* Hide the default webkit indicator (Chromium/Safari) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
+/* Hide Firefox built-in marker by removing appearance */
+input[type="date"]::-moz-focus-inner {
+  border: 0;
+}
+
+/* attach our SVG as a background image (relative path from this CSS file)
+   Note: bundlers will resolve this path during build; adjust if necessary */
+/* Embedded calendar SVG as data-URI to avoid bundler/path issues */
+/* svg was URL-encoded to ensure safe embedding in CSS */
+input[type="date"] {
+  background-image: url("data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2218%22%20viewBox%3D%220%200%2016%2018%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5.5%2012.75C4.91667%2012.75%204.42361%2012.5486%204.02083%2012.1458C3.61806%2011.7431%203.41667%2011.25%203.41667%2010.6667C3.41667%2010.0833%203.61806%209.59028%204.02083%209.1875C4.42361%208.78472%204.91667%208.58333%205.5%208.58333C6.08333%208.58333%206.57639%208.78472%206.97917%209.1875C7.38194%209.59028%207.58333%2010.0833%207.58333%2010.6667C7.58333%2011.25%207.38194%2011.7431%206.97917%2012.1458C6.57639%2012.5486%206.08333%2012.75%205.5%2012.75ZM2.16667%2017.3333C1.70833%2017.3333%201.31597%2017.1701%200.989583%2016.8438C0.663194%2016.5174%200.5%2016.125%200.5%2015.6667V4C0.5%203.54167%200.663194%203.14931%200.989583%202.82292C1.31597%202.49653%201.70833%202.33333%202.16667%202.33333H3V0.666668H4.66667V2.33333H11.3333V0.666668H13V2.33333H13.8333C14.2917%202.33333%2014.684%202.49653%2015.0104%202.82292C15.3368%203.14931%2015.5%203.54167%2015.5%204V15.6667C15.5%2016.125%2015.3368%2016.5174%2015.0104%2016.8438C14.684%2017.1701%2014.2917%2017.3333%2013.8333%2017.3333H2.16667ZM2.16667%2015.6667H13.8333V7.33333H2.16667V15.6667Z%22%20fill%3D%22%23667185%22/%3E%3C/svg%3E");
+}
+
+/* explicit rule for the document-submitted-on field to guarantee icon and spacing */
+input#document-submitted-on {
+  background-image: url('../assets/calendar-16x18.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - 12px) center;
+  background-size: 16px 18px;
+  padding-right: 44px;
+  background-clip: padding-box;
+}
+
+/* Force radios to brand color inside the visa form — uses accent-color where supported and a custom fallback where not */
+.visa-form input[type="radio"], .visa-form .radio-row input[type="radio"], .visa-form input[type="radio"].fc-radio {
+  accent-color: #38AEE0 !important; /* brand teal */
+}
+
+.visa-form input[type="radio"] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #38AEE0;
+  background: #ffffff;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 6px 0 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.visa-form input[type="radio"]:checked {
+  background: radial-gradient(circle at center, #38AEE0 55%, transparent 56%) !important;
+  border-color: #38AEE0 !important;
+}
+
+.visa-form input[type="radio"]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 4px rgba(56,174,224,0.12) !important;
+}
+
+/* Force grey radios specifically for the initiation radio group (scoped) */
+[data-scope="initiation"] input[type="radio"],
+[data-scope="initiation"] input[type="radio"].fc-radio {
+  accent-color: #9aa0a6 !important;
+  border: 2px solid #646565 !important;
+  background: #ffffff !important;
+}
+
+[data-scope="initiation"] input[type="radio"]:checked {
+  background: radial-gradient(circle at center, #9aa0a6 55%, transparent 56%) !important;
+  border-color: #9aa0a6 !important;
+}
+
+[data-scope="initiation"] input[type="radio"]:focus {
+  box-shadow: 0 0 0 4px rgba(154,160,166,0.12) !important;
+}
