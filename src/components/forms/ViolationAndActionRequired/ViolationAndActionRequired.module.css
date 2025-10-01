@@ -1,0 +1,196 @@
+/* ViolationAndActionRequired.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  padding: 16px 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.recipientTypeLabel {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #101928;
+  margin: 0;
+}
+
+.sectionTitle {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #101928;
+  margin: 0;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.radioLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  min-height: 24px;
+}
+
+.radioLabel:has(.radioInput:disabled) {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.radioInput {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #838383; /* gray - default for non-/1 routes */
+  cursor: pointer;
+}
+
+.radioInput:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.optionLabel {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #6e6e6e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.optionLabel.selected {
+  color: #838383; /* gray - default for non-/1 routes */
+  font-weight: 600;
+}
+
+.optionLabel.disabled {
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ABSOLUTE MAXIMUM SPECIFICITY - Using unique global classes */
+/* Custom blue radio styling for routes /3 and /4 */
+:global(.blue-radios-violation) input[type="radio"][data-violation-radio="true"],
+:global(.blue-radios-violation) input[type="radio"][name="violation"],
+:global(.blue-radios-violation) input[type="radio"][name="action"],
+:global(.blue-radios-violation) .radioInput {
+  accent-color: #38AEE0 !important;
+  /* Custom styling to force blue border */
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 2px solid #38AEE0 !important;
+  border-radius: 50% !important;
+  background-color: white !important;
+  cursor: pointer !important;
+  position: relative !important;
+  margin: 0 !important;
+}
+
+/* Blue checked state - filled center */
+:global(.blue-radios-violation) input[type="radio"]:checked {
+  border-color: #38AEE0 !important;
+  background-color: white !important;
+}
+
+/* Blue inner dot when checked */
+:global(.blue-radios-violation) input[type="radio"]:checked::before {
+  content: '' !important;
+  display: block !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background-color: #38AEE0 !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* Blue focus state - no shadow, just outline */
+:global(.blue-radios-violation) input[type="radio"]:focus {
+  outline: 2px solid #38AEE0 !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+
+/* Gray radio buttons - keep native appearance */
+:global(.gray-radios-violation) input[type="radio"][data-violation-radio="true"],
+:global(.gray-radios-violation) input[type="radio"][name="violation"],
+:global(.gray-radios-violation) input[type="radio"][name="action"],
+:global(.gray-radios-violation) .radioInput {
+  accent-color: #838383 !important;
+  -webkit-appearance: auto !important;
+  appearance: auto !important;
+}
+
+/* Gray focus state */
+:global(.gray-radios-violation) input[type="radio"]:focus {
+  outline: 2px solid #838383 !important;
+  outline-offset: 2px !important;
+  box-shadow: none !important;
+}
+
+/* Component-scoped styling */
+.radioInput {
+  accent-color: #838383 !important; /* gray default */
+}
+
+/* Text color updates */
+.blueRadios .optionLabel.selected {
+  color: #0b6076 !important; /* blue text for selected items on /3 and /4 routes */
+}
+
+.grayRadios .optionLabel.selected {
+  color: #838383 !important; /* gray text for selected items on /5 route */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    gap: 24px;
+    padding: 12px 0;
+  }
+  
+  .radioGroup {
+    gap: 16px;
+  }
+  
+  .sectionTitle {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .radioGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .container {
+    gap: 20px;
+  }
+  
+  .section {
+    gap: 12px;
+  }
+}

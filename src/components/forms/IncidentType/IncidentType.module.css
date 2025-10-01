@@ -1,0 +1,88 @@
+/* IncidentType.module.css */
+.incidentTypeBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.label {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #101928;
+}
+
+.options {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.radioLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.radioInput {
+  /* Use native radio but increase size for visual parity */
+  width: 18px;
+  height: 18px;
+  margin: 0 6px 0 0;
+  vertical-align: middle;
+  accent-color: #838383; /* gray - default for non-/1 routes */
+}
+
+.optionLabel {
+  display: inline-block;
+  color: #111827;
+  font-weight: 500;
+}
+
+.blue {
+  color: #838383; /* gray - default for non-/1 routes */
+  font-weight: 600;
+}
+
+/* Blue color for /1 route */
+:global(body.route-1) .blue {
+  color: #0b6076;
+}
+
+/* Blue radio for /1 route */
+:global(body.route-1) .radioInput {
+  accent-color: #38AEE0 !important;
+}
+
+/* Gray radio color for non-/1 routes */
+:global(.incident-route-other) .radioInput {
+  accent-color: #838383 !important;
+}
+
+/* Force radio button colors - add class to container */
+:global(.incident-route-other) .radioInput {
+  accent-color: #838383 !important;
+}
+
+/* Override any global CSS rules that force blue color */
+:global(.incident-route-other) input[type="radio"] {
+  accent-color: #838383 !important;
+}
+
+/* Higher specificity override for CSS modules classes */
+:global(.incident-route-other) input[class*="_radio"] {
+  accent-color: #838383 !important;
+}
+
+@media (max-width: 600px) {
+  .options {
+    gap: 8px;
+  }
+  .label {
+    font-size: 13px;
+  }
+}

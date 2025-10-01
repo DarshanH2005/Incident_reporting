@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #111827;
+}
+
+.options {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.radioLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.radioInput {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #838383; /* gray - default for non-/1 routes */
+}
+
+.optionLabel {
+  font-size: 14px;
+  color: #667185;
+}
+
+.blue {
+  color: #838383; /* gray - default for non-/1 routes */
+  font-weight: 600;
+}
+
+/* Blue color for /1 route */
+:global(body.route-1) .blue {
+  color: #0b6076;
+}
+
+/* Blue radio for /1 route */
+:global(body.route-1) .radioInput {
+  accent-color: #38AEE0 !important;
+}
+
+/* Force radio button colors - add class to container */
+:global(.incident-route-other) .radioInput {
+  accent-color: #838383 !important;
+}
+
+/* Override any global CSS rules that force blue color */
+:global(.incident-route-other) input[type="radio"] {
+  accent-color: #838383 !important;
+}
+
+/* Higher specificity override for CSS modules classes */
+:global(.incident-route-other) input[class*="_radio"] {
+  accent-color: #838383 !important;
+}
+
+.badge {
+  display: inline-block;
+  width: auto;
+  height: 20px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.badgeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.badgeButton:focus {
+  outline: 2px solid rgba(56,174,224,0.25);
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .options { gap: 12px; }
+}

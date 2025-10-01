@@ -1,0 +1,49 @@
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import styles from './IncidentDescription.module.css';
+
+/**
+ * IncidentDescription
+ * - Label: "Incident Description"
+ * - Input Frame: white box with subtle border and rounded corners
+ * - Placeholder text: "xxx-xx-xxx-xx-xxx"
+ *
+ * Props:
+ * - value?: string
+ * - onChange?: (value: string) => void
+ */
+export default function IncidentDescription({ value = '', onChange = () => {} }) {
+  const [text, setText] = useState(value || '');
+  const location = useLocation();
+  const isRoute5 = /^\/5(?:$|\/)/.test(location.pathname || '');
+
+  useEffect(() => {
+    setText(value || '');
+  }, [value]);
+
+  function handleChange(e) {
+    setText(e.target.value);
+    onChange?.(e.target.value);
+  }
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.label} id="incident-description-label">Incident Description</div>
+
+      <div className={`${styles.inputFrame} ${isRoute5 ? styles.route5Bg : ''}`} role="region" aria-labelledby="incident-description-label">
+        <textarea
+          className={styles.textarea}
+          placeholder="xxx-xx-xxx-xx-xxx"
+          value={text}
+          onChange={handleChange}
+          aria-label="Incident Description"
+          rows={3}
+        />
+
+        {/* left / right content frames are part of the spec but invisible by default */}
+        <div className={styles.leftContent} aria-hidden="true" />
+        <div className={styles.rightContent} aria-hidden="true" />
+      </div>
+    </div>
+  );
+}

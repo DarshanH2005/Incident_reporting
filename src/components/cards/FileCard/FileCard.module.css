@@ -1,0 +1,89 @@
+:root {
+  --muted: #98a2b3;
+  --bg: #ffffff;
+  --accent: #cc400c;
+  --text: #0f172a;
+}
+
+.uploadInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadContent {
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background: var(--bg);
+  box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+  border: 2px dashed #c6c6c6;
+  width: 500px;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.fileType img {
+  display: block;
+  border-radius: 4px;
+}
+
+.content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.filename {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #e6e9ee;
+  border-radius: 50%;
+}
+
+.size {
+  color: var(--muted);
+}
+
+.download img {
+  display: block;
+}
+
+/* Responsive adjustments similar to UploadFile.module.css */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    padding: 16px;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card { gap: 8px; padding: 10px; }
+  .filename { font-size: 14px; }
+}

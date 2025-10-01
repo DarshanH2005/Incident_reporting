@@ -1,0 +1,122 @@
+/* TransferWorkflow.module.css */
+.container {
+  width: calc(100% + 48px);
+  background: #eff6ff;
+  border-radius: 6px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 16px;
+  margin-left: -24px;
+  margin-right: -24px;
+  box-sizing: border-box;
+}
+
+.container:hover {
+  background: #dbeafe;
+}
+
+.container:active {
+  background: #bfdbfe;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 24px;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.iconTextWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.iconWrapper svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.text {
+  font-family: 'Samsung InterFace', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 23px;
+  color: #101928;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+
+.rightIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 11px;
+  height: 19px;
+  margin-left: 24px;
+  flex-shrink: 0;
+}
+
+.rightIcon svg {
+  width: 11px;
+  height: 19px;
+  display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px 16px;
+    margin-top: 12px;
+  }
+  
+  .text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .iconTextWrapper {
+    gap: 10px;
+  }
+  
+  .rightIcon {
+    margin-left: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 8px 12px;
+  }
+  
+  .text {
+    font-size: 14px;
+  }
+  
+  .iconTextWrapper {
+    gap: 8px;
+  }
+  
+  .rightIcon {
+    margin-left: 12px;
+  }
+}
