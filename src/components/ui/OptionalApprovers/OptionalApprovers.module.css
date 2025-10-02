@@ -28,6 +28,7 @@
   gap: 8px;
   cursor: pointer;
   user-select: none;
+  padding-right: 30px;
 }
 
 .customCheckboxWrapper {
@@ -56,11 +57,15 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
+  outline: none;
+  box-shadow: none;
 }
 
 .customCheckbox.checked {
   background: #838383; /* gray - default for non-/1 routes */
   border-color: #838383;
+  outline: none;
+  box-shadow: none;
 }
 
 .customCheckbox:hover {
@@ -71,10 +76,19 @@
 :global(body.route-1) .customCheckbox.checked {
   background: #38aee0;
   border-color: #38aee0;
+  outline: none;
+  box-shadow: none;
 }
 
 :global(body.route-1) .customCheckbox:hover {
   border-color: #38aee0;
+  outline: none;
+  box-shadow: none;
+}
+
+.hiddenCheckbox:focus + .customCheckbox {
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .checkIcon {

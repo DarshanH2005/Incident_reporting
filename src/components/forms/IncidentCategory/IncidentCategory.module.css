@@ -27,45 +27,31 @@
 }
 
 .radioInput {
-  width: 18px;
-  height: 18px;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
   margin: 0;
-  accent-color: #838383; /* gray - default for non-/1 routes */
+  cursor: pointer;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.radioInput:focus {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .optionLabel {
   font-size: 14px;
-  color: #667185;
+  color: #838383;
 }
 
 .blue {
-  color: #838383; /* gray - default for non-/1 routes */
+  color: #000000;
   font-weight: 600;
-}
-
-/* Blue color for /1 route */
-:global(body.route-1) .blue {
-  color: #0b6076;
-}
-
-/* Blue radio for /1 route */
-:global(body.route-1) .radioInput {
-  accent-color: #38AEE0 !important;
-}
-
-/* Force radio button colors - add class to container */
-:global(.incident-route-other) .radioInput {
-  accent-color: #838383 !important;
-}
-
-/* Override any global CSS rules that force blue color */
-:global(.incident-route-other) input[type="radio"] {
-  accent-color: #838383 !important;
-}
-
-/* Higher specificity override for CSS modules classes */
-:global(.incident-route-other) input[class*="_radio"] {
-  accent-color: #838383 !important;
 }
 
 .badge {
@@ -88,8 +74,8 @@
 }
 
 .badgeButton:focus {
-  outline: 2px solid rgba(56,174,224,0.25);
-  border-radius: 4px;
+  outline: none;
+  box-shadow: none;
 }
 
 @media (max-width: 600px) {

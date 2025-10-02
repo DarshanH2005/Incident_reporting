@@ -57,6 +57,13 @@
   margin: 0;
   accent-color: #838383; /* gray - default for non-/1 routes */
   cursor: pointer;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.radioInput:focus {
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .radioInput:disabled {
@@ -66,16 +73,16 @@
 
 .optionLabel {
   font-family: 'Samsung InterFace', Arial, sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
   line-height: 1.45;
-  color: #6e6e6e;
+  color: #A5A5A8; /* gray default for unselected */
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .optionLabel.selected {
-  color: #838383; /* gray - default for non-/1 routes */
+  color: #000000; /* black when selected */
   font-weight: 600;
 }
 
@@ -85,33 +92,40 @@
 }
 
 /* ABSOLUTE MAXIMUM SPECIFICITY - Using unique global classes */
-/* Custom blue radio styling for routes /3 and /4 */
+/* Custom radio styling with gray default border */
 :global(.blue-radios-violation) input[type="radio"][data-violation-radio="true"],
 :global(.blue-radios-violation) input[type="radio"][name="violation"],
 :global(.blue-radios-violation) input[type="radio"][name="action"],
-:global(.blue-radios-violation) .radioInput {
-  accent-color: #38AEE0 !important;
-  /* Custom styling to force blue border */
+:global(.blue-radios-violation) .radioInput,
+:global(.gray-radios-violation) input[type="radio"][data-violation-radio="true"],
+:global(.gray-radios-violation) input[type="radio"][name="violation"],
+:global(.gray-radios-violation) input[type="radio"][name="action"],
+:global(.gray-radios-violation) .radioInput {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
   appearance: none !important;
   width: 18px !important;
   height: 18px !important;
-  border: 2px solid #38AEE0 !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  border: 2px solid #A5A5A8 !important; /* gray border default */
   border-radius: 50% !important;
   background-color: white !important;
   cursor: pointer !important;
   position: relative !important;
   margin: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
-/* Blue checked state - filled center */
+/* Checked state for blue radios (routes /3, /4) - blue border and center dot */
 :global(.blue-radios-violation) input[type="radio"]:checked {
   border-color: #38AEE0 !important;
   background-color: white !important;
 }
 
-/* Blue inner dot when checked */
 :global(.blue-radios-violation) input[type="radio"]:checked::before {
   content: '' !important;
   display: block !important;
@@ -125,27 +139,30 @@
   transform: translate(-50%, -50%) !important;
 }
 
-/* Blue focus state - no shadow, just outline */
-:global(.blue-radios-violation) input[type="radio"]:focus {
-  outline: 2px solid #38AEE0 !important;
-  outline-offset: 2px !important;
-  box-shadow: none !important;
+/* Checked state for gray radios (route /5) - gray border and center dot */
+:global(.gray-radios-violation) input[type="radio"]:checked {
+  border-color: #A5A5A8 !important;
+  background-color: white !important;
 }
 
-/* Gray radio buttons - keep native appearance */
-:global(.gray-radios-violation) input[type="radio"][data-violation-radio="true"],
-:global(.gray-radios-violation) input[type="radio"][name="violation"],
-:global(.gray-radios-violation) input[type="radio"][name="action"],
-:global(.gray-radios-violation) .radioInput {
-  accent-color: #838383 !important;
-  -webkit-appearance: auto !important;
-  appearance: auto !important;
+:global(.gray-radios-violation) input[type="radio"]:checked::before {
+  content: '' !important;
+  display: block !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background-color: #A5A5A8 !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
-/* Gray focus state */
+/* Focus state - no shadow or outline */
+:global(.blue-radios-violation) input[type="radio"]:focus,
 :global(.gray-radios-violation) input[type="radio"]:focus {
-  outline: 2px solid #838383 !important;
-  outline-offset: 2px !important;
+  outline: none !important;
+  outline-offset: 0 !important;
   box-shadow: none !important;
 }
 
@@ -154,14 +171,7 @@
   accent-color: #838383 !important; /* gray default */
 }
 
-/* Text color updates */
-.blueRadios .optionLabel.selected {
-  color: #0b6076 !important; /* blue text for selected items on /3 and /4 routes */
-}
-
-.grayRadios .optionLabel.selected {
-  color: #838383 !important; /* gray text for selected items on /5 route */
-}
+/* Remove old text color overrides - using unified approach above */
 
 /* Responsive design */
 @media (max-width: 768px) {

@@ -39,6 +39,13 @@
   width: 100%;
 }
 
+/* Incident Description textarea - use min-height instead of fixed height */
+._inputFrame_1c26e_29 {
+  min-height: 48px !important;
+  height: auto !important;
+  align-items: stretch !important;
+}
+
 ._leftContent_j8q6v_69, ._leftContent_1wq7m_61, ._leftContent_1shfq_69, .fc-leftContent { 
   flex: 1 1 auto;
   display: flex;
@@ -184,3 +191,127 @@ body.route-1 .visa-form input[type="radio"]:checked {
 [data-scope="initiation"] input[type="radio"]:focus {
   box-shadow: 0 0 0 4px rgba(154,160,166,0.12) !important;
 }
+
+/* IncidentType and IncidentCategory radio buttons - ONLY for route /1 */
+body.route-1 [class*="incidentTypeBlock"] input[type="radio"],
+body.route-1 [class*="incidentTypeBlock"] [class*="radioInput"],
+body.route-1 [class*="IncidentCategory"] input[type="radio"],
+body.route-1 [class*="IncidentCategory"] [class*="radioInput"],
+body.route-1 [class*="container"] [class*="radioInput"] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  border-radius: 50%;
+  border: 2px solid #A5A5A8 !important;
+  background: #ffffff !important;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 !important;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+body.route-1 [class*="incidentTypeBlock"] input[type="radio"]:checked,
+body.route-1 [class*="IncidentCategory"] input[type="radio"]:checked,
+body.route-1 [class*="container"] [class*="radioInput"]:checked {
+  background: radial-gradient(circle at center, #38AEE0 55%, transparent 56%) !important;
+  border-color: #38AEE0 !important;
+}
+
+body.route-1 [class*="incidentTypeBlock"] input[type="radio"]:focus,
+body.route-1 [class*="IncidentCategory"] input[type="radio"]:focus,
+body.route-1 [class*="container"] [class*="radioInput"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Change text color to black when radio is selected - ONLY for route /1 */
+body.route-1 [class*="incidentTypeBlock"] input[type="radio"]:checked + [class*="optionLabel"],
+body.route-1 [class*="incidentTypeBlock"] input[type="radio"]:checked + [class*="blue"],
+body.route-1 [class*="IncidentCategory"] input[type="radio"]:checked + [class*="optionLabel"],
+body.route-1 [class*="IncidentCategory"] input[type="radio"]:checked + [class*="blue"],
+body.route-1 [class*="container"] [class*="radioInput"]:checked + span {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+/* Gray text by default for non-selected radio buttons - ONLY for route /1 */
+body.route-1 [class*="incidentTypeBlock"] [class*="optionLabel"],
+body.route-1 [class*="incidentTypeBlock"] [class*="blue"],
+body.route-1 [class*="IncidentCategory"] [class*="optionLabel"],
+body.route-1 [class*="IncidentCategory"] [class*="blue"] {
+  color: #A5A5A8 !important;
+  font-weight: 500 !important;
+}
+
+/* ViolationAndActionRequired radio buttons - for routes /3, /4, /5 */
+body.route-3 [class*="ViolationAndActionRequired"] input[type="radio"],
+body.route-3 [class*="ViolationAndActionRequired"] [class*="radioInput"],
+body.route-4 [class*="ViolationAndActionRequired"] input[type="radio"],
+body.route-4 [class*="ViolationAndActionRequired"] [class*="radioInput"],
+body.route-5 [class*="ViolationAndActionRequired"] input[type="radio"],
+body.route-5 [class*="ViolationAndActionRequired"] [class*="radioInput"] {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  max-width: 18px !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
+  border-radius: 50%;
+  border: 2px solid #A5A5A8 !important;
+  background: #ffffff !important;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 !important;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+body.route-3 [class*="ViolationAndActionRequired"] input[type="radio"]:checked,
+body.route-3 [class*="ViolationAndActionRequired"] [class*="radioInput"]:checked,
+body.route-4 [class*="ViolationAndActionRequired"] input[type="radio"]:checked,
+body.route-4 [class*="ViolationAndActionRequired"] [class*="radioInput"]:checked,
+body.route-5 [class*="ViolationAndActionRequired"] input[type="radio"]:checked,
+body.route-5 [class*="ViolationAndActionRequired"] [class*="radioInput"]:checked {
+  background: radial-gradient(circle at center, #38AEE0 55%, transparent 56%) !important;
+  border-color: #38AEE0 !important;
+}
+
+body.route-3 [class*="ViolationAndActionRequired"] input[type="radio"]:focus,
+body.route-3 [class*="ViolationAndActionRequired"] [class*="radioInput"]:focus,
+body.route-4 [class*="ViolationAndActionRequired"] input[type="radio"]:focus,
+body.route-4 [class*="ViolationAndActionRequired"] [class*="radioInput"]:focus,
+body.route-5 [class*="ViolationAndActionRequired"] input[type="radio"]:focus,
+body.route-5 [class*="ViolationAndActionRequired"] [class*="radioInput"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Change text color to black when radio is selected - for routes /3, /4, /5 */
+body.route-3 [class*="ViolationAndActionRequired"] input[type="radio"]:checked + [class*="optionLabel"],
+body.route-3 [class*="ViolationAndActionRequired"] [class*="radioInput"]:checked + [class*="optionLabel"],
+body.route-4 [class*="ViolationAndActionRequired"] input[type="radio"]:checked + [class*="optionLabel"],
+body.route-4 [class*="ViolationAndActionRequired"] [class*="radioInput"]:checked + [class*="optionLabel"],
+body.route-5 [class*="ViolationAndActionRequired"] input[type="radio"]:checked + [class*="optionLabel"],
+body.route-5 [class*="ViolationAndActionRequired"] [class*="radioInput"]:checked + [class*="optionLabel"] {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+/* Gray text by default for non-selected radio buttons - for routes /3, /4, /5 */
+body.route-3 [class*="ViolationAndActionRequired"] [class*="optionLabel"],
+body.route-4 [class*="ViolationAndActionRequired"] [class*="optionLabel"],
+body.route-5 [class*="ViolationAndActionRequired"] [class*="optionLabel"] {
+  color: #A5A5A8 !important;
+  font-weight: 500 !important;
+}
+

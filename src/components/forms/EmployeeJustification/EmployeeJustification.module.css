@@ -22,10 +22,10 @@
   background: #ffffff;
   border: 0.5px solid #d0d5dd;
   border-radius: 6px;
-  padding: 16px;
+  padding: 8px 16px;
   box-sizing: border-box;
   width: 100%;
-  min-height: 72px;
+  min-height: 48px;
   display: flex;
   align-items: stretch;
   position: relative;
@@ -39,9 +39,10 @@
   font-size: 16px;
   line-height: 1.45;
   color: #000000;
-  padding: 8px 12px;
+  padding: 4px 8px;
   outline: none;
   background: transparent;
+  min-height: 32px;
 }
 
 .textarea::placeholder { color: #9aa4b2; }
