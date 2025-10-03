@@ -13,12 +13,12 @@ import styles from './IncidentDescription.module.css';
  * - onChange?: (value: string) => void
  */
 export default function IncidentDescription({ value = '', onChange = () => {} }) {
-  const [text, setText] = useState(value || '');
+  const [text, setText] = useState(value || 'xxx-xx-xxx-xx-xxx');
   const location = useLocation();
   const isRoute5 = /^\/5(?:$|\/)/.test(location.pathname || '');
 
   useEffect(() => {
-    setText(value || '');
+    setText(value || 'xxx-xx-xxx-xx-xxx');
   }, [value]);
 
   function handleChange(e) {
@@ -33,11 +33,10 @@ export default function IncidentDescription({ value = '', onChange = () => {} })
       <div className={`${styles.inputFrame} ${isRoute5 ? styles.route5Bg : ''}`} role="region" aria-labelledby="incident-description-label">
         <textarea
           className={styles.textarea}
-          placeholder="xxx-xx-xxx-xx-xxx"
           value={text}
           onChange={handleChange}
           aria-label="Incident Description"
-          rows={3}
+          rows={1}
         />
 
         {/* left / right content frames are part of the spec but invisible by default */}

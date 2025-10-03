@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styles from './EmployeeJustification.module.css';
 
 const EmployeeJustification = ({ value: initialValue = '', onChange }) => {
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(initialValue || 'Test');
   const location = useLocation();
   const isRoute5 = /^\/5(?:$|\/)/.test(location.pathname || '');
 
@@ -19,10 +19,9 @@ const EmployeeJustification = ({ value: initialValue = '', onChange }) => {
       <div className={`${styles.inputFrame} ${isRoute5 ? styles.route5Bg : ''}`} role="region" aria-labelledby="employee-justification-label">
         <textarea
           className={styles.textarea}
-          placeholder="Test"
           value={value}
           onChange={handleChange}
-          rows={3}
+          rows={1}
         />
 
         <div className={styles.leftContent} aria-hidden="true" />

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './CommentBox.module.css';
 
 const CommentBox = ({ value: initialValue = '', onChange }) => {
-  const [value, setValue] = useState(initialValue);
+  const [value, setValue] = useState(initialValue || 'Test');
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -16,10 +16,9 @@ const CommentBox = ({ value: initialValue = '', onChange }) => {
       <div className={styles.inputFrame} role="region" aria-labelledby="comment-label">
         <textarea
           className={styles.textarea}
-          placeholder="Test"
           value={value}
           onChange={handleChange}
-          rows={3}
+          rows={1}
         />
 
         <div className={styles.leftContent} aria-hidden="true" />
